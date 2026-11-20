@@ -151,7 +151,8 @@ def render_video(video: Any, sections: list[str]) -> dict[str, Any]:
     }
 
 
-def _sections(runs: list[Any]) -> list[str]:
+def render_runs(runs: list[Any]) -> list[str]:
+    """Render the successful analyzers of completed understanding runs, one section each."""
     sections = []
     for run in runs:
         for analyzer in sorted(run.analyzers, key=lambda a: (a.name or "", a.id or "")):
@@ -198,7 +199,7 @@ def _iter_rows(
             stats["unchanged"] += 1
             continue
 
-        sections = _sections(done)
+        sections = render_runs(done)
         if not sections:
             stats["not_understood"] += 1
             continue

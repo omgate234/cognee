@@ -48,3 +48,10 @@ try:
     __all__.append("DltCsvLoader")
 except ImportError:
     pass
+
+try:
+    from .videodb_loader import VideoDBLoader
+
+    __all__.append("VideoDBLoader")
+except ImportError:
+    pass

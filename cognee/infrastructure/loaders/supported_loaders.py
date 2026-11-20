@@ -58,3 +58,12 @@ try:
     supported_loaders[DltCsvLoader.loader_name] = DltCsvLoader
 except ImportError:
     pass
+
+# Opt-in only: not in the engine's default priority, so it runs when a call names
+# it in preferred_loaders. Registered when the videodb extra is installed.
+try:
+    from cognee.infrastructure.loaders.external import VideoDBLoader
+
+    supported_loaders[VideoDBLoader.loader_name] = VideoDBLoader
+except ImportError:
+    pass
