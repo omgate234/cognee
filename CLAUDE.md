@@ -47,6 +47,7 @@ pre-commit install
 - **redis** - Redis caching
 - **baml** - BAML structured output
 - **dlt** - Data load tool (dlt) integration
+- **videodb** - VideoDB connector (`videodb_source`): sync a VideoDB collection's understood videos
 - **docling** - Docling document processing, slim profile without torch (office/HTML/email/markdown/LaTeX formats)
 - **docling-full** - Full docling install with torch-based ML models (adds PDF/image conversion through docling)
 - **codegraph** - Compatibility alias; code graph extraction and Enola are included by default

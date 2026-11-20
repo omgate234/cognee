@@ -261,6 +261,9 @@ docling-full = ["docling>=2.115,<3", "transformers>=4.55"]
 # by the DeBERTa tokenizer fallback.
 gliner = ["gliner2[local]>=2.0.0,<3", "torch>=2.1,<3", "protobuf>=5.29.6", "sentencepiece>=0.2.0", "psutil>=5.9"]
 rapidocr = ["rapidocr-onnxruntime>=1.3.0,<2"]
+videodb = [
+    "videodb>=0.5.1",
+]
 
 [project.urls]
 Homepage = "https://www.cognee.ai"

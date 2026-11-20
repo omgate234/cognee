@@ -3,7 +3,7 @@ revision = 5
 requires-python = ">=3.10, <3.15"
 resolution-markers = [
     "(python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and sys_platform != 'darwin' and sys_platform != 'emscripten')",
-    "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and sys_platform != 'darwin') or (python_full_version >= '3.14' and sys_platform == 'emscripten')",
+    "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and sys_platform != 'darwin' and sys_platform != 'emscripten') or (python_full_version >= '3.14' and sys_platform == 'emscripten')",
     "(python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
     "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
     "(python_full_version == '3.13.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version == '3.13.*' and sys_platform != 'darwin')",
@@ -727,7 +727,7 @@ version = "0.24.1"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
     "(python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and sys_platform != 'darwin' and sys_platform != 'emscripten')",
-    "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and sys_platform != 'darwin') or (python_full_version >= '3.14' and sys_platform == 'emscripten')",
+    "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and sys_platform != 'darwin' and sys_platform != 'emscripten') or (python_full_version >= '3.14' and sys_platform == 'emscripten')",
     "(python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
     "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
     "(python_full_version == '3.13.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version == '3.13.*' and sys_platform != 'darwin')",
@@ -1497,6 +1497,9 @@ tracing = [
 turso = [
     { name = "pyturso" },
 ]
+videodb = [
+    { name = "videodb" },
+]
 
 [package.dev-dependencies]
 dev = [
@@ -1648,9 +1651,10 @@ requires-dist = [
     { name = "unstructured", extras = ["csv", "doc", "docx", "epub", "md", "odt", "org", "ppt", "pptx", "rst", "rtf", "tsv", "xlsx", "pdf"], marker = "extra == 'docs'", specifier = ">=0.18.1,<19" },
     { name = "urllib3", specifier = ">=2.6.0" },
     { name = "uvicorn", specifier = ">=0.34.0,<1.0.0" },
+    { name = "videodb", marker = "extra == 'videodb'", specifier = ">=0.5.1" },
     { name = "websockets", specifier = ">=15.0.1,<16.0.0" },
 ]
-provides-extras = ["api", "scraping", "fastembed", "neo4j", "neptune", "postgres", "postgres-binary", "turso", "notebook", "langchain", "llama-index", "huggingface", "ollama", "mistral", "anthropic", "azure", "deepeval", "posthog", "groq", "llama-cpp", "docs", "codegraph", "evals", "aws", "dlt", "gmail", "google-drive", "google-calendar", "baml", "dev", "debug", "redis", "tracing", "docling", "docling-full", "gliner", "rapidocr"]
+provides-extras = ["api", "scraping", "fastembed", "neo4j", "neptune", "postgres", "postgres-binary", "turso", "notebook", "langchain", "llama-index", "huggingface", "ollama", "mistral", "anthropic", "azure", "deepeval", "posthog", "groq", "llama-cpp", "docs", "codegraph", "evals", "aws", "dlt", "gmail", "google-drive", "google-calendar", "baml", "dev", "debug", "redis", "tracing", "docling", "docling-full", "gliner", "rapidocr", "videodb"]
 
 [package.metadata.requires-dev]
 dev = [
@@ -1885,7 +1889,7 @@ version = "1.4.0"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
     "(python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and sys_platform != 'darwin' and sys_platform != 'emscripten')",
-    "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and sys_platform != 'darwin') or (python_full_version >= '3.14' and sys_platform == 'emscripten')",
+    "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and sys_platform != 'darwin' and sys_platform != 'emscripten') or (python_full_version >= '3.14' and sys_platform == 'emscripten')",
     "(python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
     "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
     "(python_full_version == '3.13.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version == '3.13.*' and sys_platform != 'darwin')",
@@ -2504,7 +2508,7 @@ dependencies = [
     { name = "giturlparse" },
     { name = "humanize" },
     { name = "jsonpath-ng" },
-    { name = "orjson", marker = "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy') or (python_full_version >= '3.14' and sys_platform == 'emscripten') or (platform_python_implementation != 'PyPy' and sys_platform != 'emscripten')" },
+    { name = "orjson", marker = "python_full_version >= '3.14' or (platform_python_implementation != 'PyPy' and sys_platform != 'emscripten')" },
     { name = "packaging" },
     { name = "pathvalidate" },
     { name = "pendulum" },
@@ -4227,7 +4231,7 @@ version = "9.17.1"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
     "(python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and sys_platform != 'darwin' and sys_platform != 'emscripten')",
-    "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and sys_platform != 'darwin') or (python_full_version >= '3.14' and sys_platform == 'emscripten')",
+    "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and sys_platform != 'darwin' and sys_platform != 'emscripten') or (python_full_version >= '3.14' and sys_platform == 'emscripten')",
     "(python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
     "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
     "(python_full_version == '3.13.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version == '3.13.*' and sys_platform != 'darwin')",
@@ -4861,7 +4865,7 @@ version = "0.19.0"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
     "(python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and sys_platform != 'darwin' and sys_platform != 'emscripten')",
-    "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and sys_platform != 'darwin') or (python_full_version >= '3.14' and sys_platform == 'emscripten')",
+    "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and sys_platform != 'darwin' and sys_platform != 'emscripten') or (python_full_version >= '3.14' and sys_platform == 'emscripten')",
     "(python_full_version == '3.13.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version == '3.13.*' and sys_platform != 'darwin')",
     "(python_full_version == '3.12.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version == '3.12.*' and sys_platform != 'darwin')",
     "(python_full_version == '3.11.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version == '3.11.*' and sys_platform != 'darwin')",
@@ -5519,7 +5523,7 @@ version = "6.1.3"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
     "(python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and sys_platform != 'darwin' and sys_platform != 'emscripten')",
-    "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and sys_platform != 'darwin') or (python_full_version >= '3.14' and sys_platform == 'emscripten')",
+    "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and sys_platform != 'darwin' and sys_platform != 'emscripten') or (python_full_version >= '3.14' and sys_platform == 'emscripten')",
     "(python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
     "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
 ]
@@ -5883,7 +5887,7 @@ version = "3.11.2"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
     "(python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and sys_platform != 'darwin' and sys_platform != 'emscripten')",
-    "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and sys_platform != 'darwin') or (python_full_version >= '3.14' and sys_platform == 'emscripten')",
+    "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and sys_platform != 'darwin' and sys_platform != 'emscripten') or (python_full_version >= '3.14' and sys_platform == 'emscripten')",
     "(python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
     "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
     "(python_full_version == '3.13.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version == '3.13.*' and sys_platform != 'darwin')",
@@ -6842,7 +6846,7 @@ version = "3.7"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
     "(python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and sys_platform != 'darwin' and sys_platform != 'emscripten')",
-    "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and sys_platform != 'darwin') or (python_full_version >= '3.14' and sys_platform == 'emscripten')",
+    "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and sys_platform != 'darwin' and sys_platform != 'emscripten') or (python_full_version >= '3.14' and sys_platform == 'emscripten')",
     "(python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
     "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
     "(python_full_version == '3.13.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version == '3.13.*' and sys_platform != 'darwin')",
@@ -7107,7 +7111,7 @@ version = "2.5.3"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
     "(python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and sys_platform != 'darwin' and sys_platform != 'emscripten')",
-    "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and sys_platform != 'darwin') or (python_full_version >= '3.14' and sys_platform == 'emscripten')",
+    "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and sys_platform != 'darwin' and sys_platform != 'emscripten') or (python_full_version >= '3.14' and sys_platform == 'emscripten')",
     "(python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
     "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
     "(python_full_version == '3.13.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version == '3.13.*' and sys_platform != 'darwin')",
@@ -7450,7 +7454,7 @@ version = "1.30.0"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
     "(python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and sys_platform != 'darwin' and sys_platform != 'emscripten')",
-    "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and sys_platform != 'darwin') or (python_full_version >= '3.14' and sys_platform == 'emscripten')",
+    "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and sys_platform != 'darwin' and sys_platform != 'emscripten') or (python_full_version >= '3.14' and sys_platform == 'emscripten')",
     "(python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
     "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
 ]
@@ -9826,7 +9830,7 @@ version = "3.14.6"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
     "(python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and sys_platform != 'darwin' and sys_platform != 'emscripten')",
-    "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and sys_platform != 'darwin') or (python_full_version >= '3.14' and sys_platform == 'emscripten')",
+    "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and sys_platform != 'darwin' and sys_platform != 'emscripten') or (python_full_version >= '3.14' and sys_platform == 'emscripten')",
     "(python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
     "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
     "(python_full_version == '3.13.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version == '3.13.*' and sys_platform != 'darwin')",
@@ -10358,7 +10362,7 @@ version = "2026.6.3"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
     "(python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and sys_platform != 'darwin' and sys_platform != 'emscripten')",
-    "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and sys_platform != 'darwin') or (python_full_version >= '3.14' and sys_platform == 'emscripten')",
+    "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and sys_platform != 'darwin' and sys_platform != 'emscripten') or (python_full_version >= '3.14' and sys_platform == 'emscripten')",
     "(python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
     "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
     "(python_full_version == '3.13.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version == '3.13.*' and sys_platform != 'darwin')",
@@ -10611,7 +10615,7 @@ version = "1.9.1"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
     "(python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and sys_platform != 'darwin' and sys_platform != 'emscripten')",
-    "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and sys_platform != 'darwin') or (python_full_version >= '3.14' and sys_platform == 'emscripten')",
+    "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and sys_platform != 'darwin' and sys_platform != 'emscripten') or (python_full_version >= '3.14' and sys_platform == 'emscripten')",
     "(python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
     "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
     "(python_full_version == '3.13.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version == '3.13.*' and sys_platform != 'darwin')",
@@ -10805,7 +10809,7 @@ version = "1.18.1"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
     "(python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and sys_platform != 'darwin' and sys_platform != 'emscripten')",
-    "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and sys_platform != 'darwin') or (python_full_version >= '3.14' and sys_platform == 'emscripten')",
+    "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and sys_platform != 'darwin' and sys_platform != 'emscripten') or (python_full_version >= '3.14' and sys_platform == 'emscripten')",
     "(python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
     "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
     "(python_full_version == '3.13.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version == '3.13.*' and sys_platform != 'darwin')",
@@ -12303,7 +12307,7 @@ version = "0.21.5"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
     "(python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and sys_platform != 'darwin' and sys_platform != 'emscripten')",
-    "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and sys_platform != 'darwin') or (python_full_version >= '3.14' and sys_platform == 'emscripten')",
+    "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and sys_platform != 'darwin' and sys_platform != 'emscripten') or (python_full_version >= '3.14' and sys_platform == 'emscripten')",
     "(python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
     "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
     "(python_full_version == '3.13.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version == '3.13.*' and sys_platform != 'darwin')",
@@ -12426,7 +12430,7 @@ version = "0.46.2"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
     "(python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and sys_platform != 'darwin' and sys_platform != 'emscripten')",
-    "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and sys_platform != 'darwin') or (python_full_version >= '3.14' and sys_platform == 'emscripten')",
+    "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and sys_platform != 'darwin' and sys_platform != 'emscripten') or (python_full_version >= '3.14' and sys_platform == 'emscripten')",
     "(python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
     "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
     "(python_full_version == '3.13.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version == '3.13.*' and sys_platform != 'darwin')",
@@ -12522,7 +12526,7 @@ version = "1.6.13"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
     "(python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and sys_platform != 'darwin' and sys_platform != 'emscripten')",
-    "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and sys_platform != 'darwin') or (python_full_version >= '3.14' and sys_platform == 'emscripten')",
+    "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version) or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and sys_platform != 'darwin' and sys_platform != 'emscripten') or (python_full_version >= '3.14' and sys_platform == 'emscripten')",
     "(python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation != 'PyPy' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
     "(python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
 ]
@@ -12701,6 +12705,21 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/5d/ad/04bbb797c84fc1f26cb171f7394716f4865ffb8d8c5e1eef42565c2dfa6b/uvicorn-0.53.0.tar.gz", hash = "sha256:a9356f0cb89b3b8621529c5d5eebd69bfe154f4c3f68b4cf2de47e45fa855c2e", size = 110881, upload-time = "2026-09-14T07:44:23.815Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/76/18/0eea75741ee812e9f598b687619ce2454f6c3a1c5cd21ea990ec6bd26f45/uvicorn-0.53.0-py3-none-any.whl", hash = "sha256:e8dca71ec86dce5f04e333f0d56cdedf942446e6643b9cea1af0d6d3a02cb03e", size = 87081, upload-time = "2026-09-14T07:44:22.179Z" },
+]
+
+[[package]]
+name = "videodb"
+version = "0.5.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "backoff" },
+    { name = "requests" },
+    { name = "tqdm" },
+    { name = "websockets" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/4f/af/99c122abb2fe060eb97a8669175a0a605a0469eae9a3df826ad864f636ca/videodb-0.5.1.tar.gz", hash = "sha256:27f9e521583c550dff24844588ec60781bf112c1a4eea770343185d4715a9648", size = 92602, upload-time = "2026-07-24T18:58:56.128Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/a9/44/768015c9d5e880808af7dd462a55744e6b775cdbda89dd3dd368c52dd1e4/videodb-0.5.1-py3-none-any.whl", hash = "sha256:e31b5a202f098271d911be268e2268a52531f659735560b2b0e40dc5d9835ec9", size = 95877, upload-time = "2026-07-24T18:58:54.758Z" },
 ]
 
 [[package]]
