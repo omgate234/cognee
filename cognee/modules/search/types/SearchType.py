@@ -23,6 +23,7 @@ class SearchType(str, Enum):
     GRAPH_REPORT = "GRAPH_REPORT"
     BROAD = "BROAD"
     SKILLS = "SKILLS"
+    VIDEO_MOMENTS = "VIDEO_MOMENTS"
     # Deprecated (SDK-1115): triplet embeddings were removed, so GRAPH_COMPLETION
     # answers it. Removed in the next release.
     TRIPLET_COMPLETION = "TRIPLET_COMPLETION"

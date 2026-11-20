@@ -48,6 +48,7 @@ RETURNS_BARE_CONTEXT = {
     SearchType.AGENTIC_COMPLETION,
     SearchType.CODE,
     SearchType.GRAPH_REPORT,
+    SearchType.VIDEO_MOMENTS,
 }
 
 # FEELING_LUCKY resolves to one of the others before a retriever is built.

@@ -56,6 +56,30 @@ or the fields of its `schema`), `ocr`, `brand_detection`, `activity_recognition`
 - A failed API call aborts the sync before anything is forgotten. The next run
   starts from the last good state.
 
+## Finding moments
+
+`SearchType.VIDEO_MOMENTS` answers with where in a video something happens. It runs the
+same vector search as `CHUNKS`, keeps the chunks of VideoDB documents and returns one
+moment per chunk:
+
+```python
+from cognee import SearchType
+
+moments = await cognee.search(
+    "when did we decide to delay the launch?",
+    query_type=SearchType.VIDEO_MOMENTS,
+    datasets=["videos"],
+    retriever_specific_config={"stream_clips": True},
+)
+# each moment: {"video_id": "m-...", "collection_id": "c-...", "title": ..., "start": 312,
+#   "end": 341, "text": ..., "player_url": ..., "stream_url": ..., "score": ...}
+```
+
+`start` and `end` are seconds, the span of the chunk's timestamped lines. With
+`stream_clips` each moment also gets a VideoDB stream URL that plays just that span (one
+API call per moment, needs `VIDEO_DB_API_KEY`); a clip that cannot be streamed keeps its
+other fields. The search itself calls no LLM.
+
 ## Understanding runs
 
 `understand=True` starts a `spoken_words` + `vlm` run for each video that has never had

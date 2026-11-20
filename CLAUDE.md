@@ -300,6 +300,7 @@ Available search types (from `cognee/modules/search/types/SearchType.py`), passe
 - **AGENTIC_COMPLETION** - Multi-step LLM loop that can load `skills` and call `tools`; bounded by `max_iter`
 - **CODE** - Deterministic operations over the code graph via `code_query` (no LLM); see "Code Files" below
 - **GRAPH_REPORT** - Graph insight report: hub nodes, cross-node-set connections, edge provenance, suggested questions
+- **VIDEO_MOMENTS** - Chunk vector search kept to documents from VideoDB (`videodb` extra); returns video id, start/end and the matching lines per hit, plus a clip stream URL with `retriever_specific_config={"stream_clips": True}` (no LLM)
 
 `recall()` picks one of these automatically when `query_type` is omitted; so does `cognee-cli recall` when `--query-type` is omitted, and `POST /api/v1/recall` when `searchType` is omitted or `null` (the default). The CLI's explicit `--query-type` accepts only the choices in `cognee/cli/config.py:SEARCH_TYPE_CHOICES`; the rest are SDK-only. Routing rules and bypass options: `docs/recall-vs-search.md`.
 

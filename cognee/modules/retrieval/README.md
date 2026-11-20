@@ -22,6 +22,7 @@ together.
 | `AGENTIC_COMPLETION` | `AgenticRetriever` | `agentic_retriever.py` | yes | Special-cased in the factory (not in the dict): tool loop with `skills`, `tools`, `max_iter` |
 | `CHUNKS` | `ChunksRetriever` | `chunks_retriever.py` | no | Vector search over `DocumentChunk_text` |
 | `CHUNKS_LEXICAL` | `BM25ChunksRetriever` | `bm25_retriever.py` | no | BM25 over chunks (`LexicalRetriever` subclass) |
+| `VIDEO_MOMENTS` | `VideoMomentsRetriever` | `video_moments_retriever.py` | no | Chunk vector search kept to VideoDB documents; returns video id + start/end per hit, and a clip stream URL with `stream_clips` |
 | `SUMMARIES` | `SummariesRetriever` | `summaries_retriever.py` | no | Vector search over `TextSummary_text` |
 | `SKILLS` | `SkillsRetriever` | `skills_retriever.py` | no | Metadata-only skill discovery; exactly one dataset |
 | `CODE` | `CodeRetriever` | `code_retriever.py` | no | Deterministic code-graph operations via `code_query` |
