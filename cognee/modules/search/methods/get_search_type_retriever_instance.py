@@ -39,6 +39,7 @@ from cognee.modules.retrieval.natural_language_retriever import NaturalLanguageR
 from cognee.modules.retrieval.skills_retriever import SkillsRetriever
 from cognee.modules.retrieval.summaries_retriever import SummariesRetriever
 from cognee.modules.retrieval.temporal_hybrid_retriever import TemporalHybridRetriever
+from cognee.modules.retrieval.video_moments_retriever import VideoMomentsRetriever
 from cognee.modules.search.exceptions import SearchTypeDisabledError, UnsupportedSearchTypeError
 from cognee.modules.search.operations import select_search_type
 from cognee.modules.search.types import SearchType
@@ -151,6 +152,15 @@ async def get_search_type_retriever_instance(
                 "top_k": top_k,
                 "node_name": node_name,
                 "node_name_filter_operator": node_name_filter_operator,
+            },
+        ),
+        SearchType.VIDEO_MOMENTS: (
+            VideoMomentsRetriever,
+            {
+                "top_k": top_k,
+                "node_name": node_name,
+                "node_name_filter_operator": node_name_filter_operator,
+                "stream_clips": bool(retriever_specific_config.get("stream_clips", False)),
             },
         ),
         # No top_k: BROAD reads the whole dataset (SDK-324).
