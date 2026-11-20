@@ -72,6 +72,26 @@ The sync never waits for a run. The video is picked up by the first sync after i
 completes. Runs are billed to the VideoDB account, so `understand` is off by default, and
 a video whose run failed is not retried.
 
+## Local video files
+
+The same extra registers `videodb_loader`, which uploads a local video file to VideoDB,
+runs an understanding pass on it and stores the rendered text, in the same format as
+above. It is never picked by default (`video_loader` still transcribes videos with the
+LLM), so name it per call:
+
+```python
+await cognee.remember(
+    "talk.mp4",
+    preferred_loaders={"videodb_loader": {"collection_id": "c-..."}},
+)
+```
+
+Loader options, all optional: `collection_id`, `analyzers`, `segmentation`, `transform`,
+`timeout` (seconds, default 1800) and `base_url`. The key comes from `VIDEO_DB_API_KEY`
+only, so it never travels with pipeline options. The add waits for the run, and the
+uploaded video stays in the collection, so a later `videodb_source` sync of that
+collection picks it up too.
+
 ## Options
 
 | Argument | Default | |
